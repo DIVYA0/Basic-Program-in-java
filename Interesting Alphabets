@@ -1,0 +1,29 @@
+
+import java.util.Scanner;
+public class Solution {
+    public static void main(String[] args) {
+        //Your code goes here
+        Scanner Sc=new Scanner(System.in);
+        int n=Sc.nextInt();
+        int i=1;
+        char ch=(char)('A'+n-1);
+        while(i<=n){
+            int j=1;
+
+            // char p=ch;
+            while(j<=i){
+
+                System.out.print((char)(ch+j-1)); 
+
+                j++;
+            }
+            ch=(char)(ch-1);
+            System.out.println();
+            i=i+1;
+
+        }
+
+
+
+    }
+}
