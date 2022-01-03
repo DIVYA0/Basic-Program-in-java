@@ -1,0 +1,46 @@
+import java.util.Scanner;
+public class Diamond_CodingninjaSolution {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		int n=Sc.nextInt();
+		int firstHalf=(n+1)/2;
+		int SecondHalf=n/2;
+		//FirstHalf
+		int currentRow=1;
+		while(currentRow<=firstHalf) {
+			int Space=1;
+			while(Space<=firstHalf-currentRow){
+
+				System.out.print(" ");
+				Space++;
+			}
+			int star=1;
+			while (star<=(2*currentRow)-1) {
+				System.out.print("*");
+				star++;
+			}
+			currentRow++;
+			System.out.println();
+		}
+
+		//Second Half
+		currentRow=SecondHalf;
+		while (currentRow>=1) {
+			int space=1;
+			while (space<=(SecondHalf-currentRow+1)) {
+				System.out.print(" ");
+				space++;
+			}
+			int star=1;
+			while (star<=(2*currentRow)-1) {
+				System.out.print("*");
+				star++;
+			}
+			System.out.println();
+			currentRow--;
+		}
+}
+
+}
