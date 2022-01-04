@@ -1,0 +1,28 @@
+import java.util.Scanner;
+public class Main {
+	
+	public static void main(String[] args) {
+		// Write your code here
+        Scanner Sc=new Scanner(System.in);
+		int n=Sc.nextInt();
+		int row=1;
+		while (row<=n) {
+		int i=1;
+		int sum=0;
+		while(i<row) {
+		sum+=i;
+			System.out.print(i+"+");
+			i++;
+		}
+		while(i==row) {
+			sum+=i;
+			System.out.print(i+"="+sum);
+			i++;
+		}
+			
+			System.out.println();
+			row++;	
+		}
+
+	}
+}
