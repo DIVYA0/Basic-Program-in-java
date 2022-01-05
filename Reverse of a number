@@ -1,0 +1,23 @@
+import java.util.Scanner;
+public class Main {
+    public static void main(String[] args) {
+        // TODO Auto-generated method stub
+        Scanner Sc=new Scanner(System.in);
+        int n=Sc.nextInt();
+        int Reverse_Number=0;
+        while(n>0) {
+
+            Reverse_Number =Reverse_Number*10+n%10;
+
+            n=n/10;
+
+        }//result is without zero
+        //		while(n>0) {
+        //			int rem=n%10;
+        //			 n=n/10;
+        //			System.out.print(rem);
+        //			
+        //		}result is with zero
+        System.out.println(Reverse_Number);
+ }
+}
