@@ -1,0 +1,27 @@
+import java.util.Scanner;;
+public class grid {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		int n=Sc.nextInt();
+
+		for (int i = 1; i <=n; i++) {
+			int sizeGrid=Sc.nextInt();
+			if(sizeGrid>=3&&sizeGrid%2!=0) {
+				int row=Sc.nextInt();
+				int col=Sc.nextInt();
+				if((row%2==0)&&(col%2==0)||(row%2!=0)&&(col%2!=0)) {
+					System.out.println("0");
+
+				}else {
+					System.out.println("1");	
+				}
+			}else {
+				continue;
+			}
+
+		}
+	}
+
+}
