@@ -1,0 +1,77 @@
+
+import java.util.Scanner;
+
+
+// Remember that the class name should be "Main" and should be "public".
+
+    public class Main{
+	public static void main(String[] args) {
+		// System.in and System.out are input and output streams, respectively.
+	Scanner Sc=new Scanner(System.in);
+		int count=Sc.nextInt();
+		if(count==1|| count<=300){
+
+			//first subtask
+			long infectedPeople=1;
+			int	 i=0;
+			for(int j=1;j<=count;j++) {
+				long population=Sc.nextInt();
+				long day=Sc.nextInt();
+				if((population == 1|| population <=(long)Math.pow(10,8)) && (day==0||day<=20)){
+					if(day<=10) {
+						for(i=0;i<=day;i++) {
+							infectedPeople=(long) Math.pow(2, i);
+						}
+					}else if(day>10) {
+						for(i=0;i<=10;i++) {
+							infectedPeople=(long) Math.pow(2, i);
+						}
+						for(i=11;i<=day;i++) {
+							infectedPeople=3*infectedPeople;
+						}
+					}
+					if(population>infectedPeople) {
+						System.out.println(infectedPeople);
+					}
+					else {
+						System.out.println(population);
+					}
+				}else if((population == 1|| population <=(long)Math.pow(10,8)) && (day>20||day<=(long)Math.pow(10, 8))){
+					if(day<=10) {
+						for(i=0;i<=day;i++) {
+							infectedPeople=(long) Math.pow(2, i);
+						}
+					}else if(day>10) {
+						for(i=0;i<=10;i++) {
+							infectedPeople=(long) Math.pow(2, i);
+						}
+						for(i=11;i<=day;i++) {
+							if(population<infectedPeople) {
+
+								break;
+							}
+							infectedPeople=3*infectedPeople;
+
+						}
+
+					}
+					if(population>infectedPeople) {
+						System.out.println(infectedPeople);
+
+					}else {
+						System.out.println(population);
+					}
+				}
+
+
+
+			}
+
+
+
+		}
+
+	
+	}
+	
+}
