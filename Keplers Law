@@ -1,0 +1,30 @@
+
+import java.util.Scanner;
+
+
+// Remember that the class name should be "Main" and should be "public".
+
+    public class Main{
+	public static void main(String[] args) {
+		Scanner Sc=new Scanner(System.in);
+		int count=Sc.nextInt();
+		for(int i=1;i<=count;i++) {
+			
+			int T1=Sc.nextInt();
+			int T2=Sc.nextInt();
+			int R1=Sc.nextInt();
+			int R2=Sc.nextInt();
+			double a=(double)(T1*T1)/(R1*R1*R1);
+			double b=	(double)(T2*T2)/(R2*R2*R2);	
+		
+			if(a==b) {
+				System.out.println("Yes");
+
+			}else {
+				System.out.println("No");
+			}
+
+		}
+	}
+	
+}
