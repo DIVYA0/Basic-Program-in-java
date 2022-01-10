@@ -1,0 +1,55 @@
+import java.util.Scanner;
+public class Solution {
+
+	public static void main(String[] args) {
+
+		/*  Read input as specified in the question.
+    		 * Print output as specified in the question.
+    		 */
+        		Scanner Sc=new Scanner(System.in);
+		int n=Sc.nextInt();
+		int Firststar=1;
+		int finalstar=1;
+		for(int row=1;row<=n;row++) {
+			int firstZero=1;
+			while(firstZero<row) {
+
+				System.out.print("0");
+				firstZero++;
+
+			}
+			while(Firststar==row) {
+				System.out.print("*");
+				Firststar++;
+			}
+			int secondzero=1;
+			while(secondzero<=n-row) {
+				System.out.print("0");
+				secondzero++;
+			}
+			System.out.print("*");
+			int thirdZero=n-row;
+			while(thirdZero>=1) {
+				System.out.print("0");
+				thirdZero--;
+
+			}
+
+			while(finalstar==row) {
+				System.out.print("*");
+				finalstar++;
+
+			}
+			int FinalZero=1;
+			while(FinalZero<=row-1) {
+				System.out.print("0");
+				FinalZero++;
+			}
+			System.out.println();
+
+		}
+		
+	}	
+
+
+}
