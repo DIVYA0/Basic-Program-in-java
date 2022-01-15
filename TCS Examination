@@ -1,0 +1,53 @@
+
+import java.util.Scanner;
+
+
+// Remember that the class name should be "Main" and should be "public".
+
+    public class Main{
+	public static void main(String[] args) {
+		// System.in and System.out are input and output streams, respectively.
+        Scanner Sc=new Scanner(System.in);
+		int totalTestCase=Sc.nextInt();
+		for (int i = 1; i <= totalTestCase; i++) {
+			int d_DSA=Sc.nextInt();
+			int d_TOC=Sc.nextInt();
+			int d_DM=Sc.nextInt();
+			int s_DSA=Sc.nextInt();
+			int s_TOC=Sc.nextInt();
+			int s_DM=Sc.nextInt();
+			int d_TotalMark=(d_DSA+d_TOC+d_DM);
+			int s_TotalMark=(s_DSA+s_TOC+s_DM);
+			if (d_TotalMark>s_TotalMark) {
+				System.out.println("DRAGON");
+			}else if(s_TotalMark>d_TotalMark){
+				System.out.println("SLOTH");
+			}else if(s_TotalMark==d_TotalMark) {
+				if(d_DSA>s_DSA) {
+					System.out.println("DRAGON");
+				}else if(d_DSA<s_DSA) {
+					System.out.println("SLOTH");
+				}else if(d_DSA==s_DSA) {
+
+					if(d_TOC>s_TOC) {
+
+						System.out.println("DRAGON");
+					}else if(d_TOC<s_TOC) {
+						System.out.println("SLOTH");
+					}else if(d_TOC==s_TOC) {
+						if(d_DM>s_DM) {
+							System.out.println("DRAGON");
+						}else if(d_DM<s_DM) {
+							System.out.println("SLOTH");
+						}
+						else {
+							System.out.println("TIE");
+						}
+					}
+				}
+			}
+
+		}
+	}
+	
+}
