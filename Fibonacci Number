@@ -1,0 +1,31 @@
+
+public class Solution {
+
+    public static boolean checkMember(int n){
+
+        /* Your class should be named Solution
+		* Don't write main().
+	 	* Don't read input, it is passed as function argument.
+	 	* Return output and don't print it.
+	 	* Taking input and printing output is handled automatically.
+		*/
+
+
+        int n1=0,n2=1,n3=0;
+        boolean isFibo=false;
+
+        while (n3<=n) {
+            if (n3==n) {
+                isFibo=true;
+                break;
+            }
+
+            n3=n1+n2;
+            n1=n2;
+            n2=n3;
+        }
+        return isFibo;
+
+
+    }
+}
