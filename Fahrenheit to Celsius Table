@@ -1,0 +1,15 @@
+public class Solution {
+
+	public static void printFahrenheitTable(int S, int E, int W) {
+		/* Your class should be named Solution 
+		 * Don't write main(). 
+		 * Don't read input, it is passed as function argument. 
+		 * Print the specified output in required format. 
+		 * Taking input is handled automatically. 
+		 */
+		for (int i = S; i <=E; i=i+W) {
+			int result=(int)((i-32)/1.8);
+			System.out.println(i+" "+result);
+		}
+	}
+}
