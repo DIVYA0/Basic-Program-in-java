@@ -1,0 +1,43 @@
+
+import java.util.Scanner;
+
+
+// Remember that the class name should be "Main" and should be "public".
+
+    public class Main{
+	public static void main(String[] args) {
+		// System.in and System.out are input and output streams, respectively.
+	Scanner Sc=new Scanner(System.in);
+		int totalTestcase=Sc.nextInt();
+		for (int i = 0; i < totalTestcase; i++) {
+			int getArrayLength=Sc.nextInt();
+			int arr[]=new int[getArrayLength];
+			int sum=0;
+			int index=0;
+			
+			int mini=Integer.MAX_VALUE;
+			for (int j = 0; j < getArrayLength; j++) {
+				arr[j]=Sc.nextInt();
+				sum+=arr[j];
+				if (arr[j]<mini) {
+					mini=arr[j];
+					index=j;
+				}
+			
+			}
+		
+			int power= (int)(Math.log(sum)/Math.log(2));
+
+			if (sum==Math.pow(2, power)) {
+				System.out.println("0");
+			}else {
+					int diff=(int)Math.pow(2, power+1)-sum;
+			  System.out.println("1");
+				System.out.println("1 "+ ((diff/mini)+1));
+				System.out.println(index+1);
+			}
+		}
+
+		}
+	
+}
