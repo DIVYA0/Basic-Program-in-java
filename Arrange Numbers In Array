@@ -1,0 +1,31 @@
+package function;
+import java.util.Iterator;
+import java.util.Scanner;
+public class ArrangeNumber {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		int n=Sc.nextInt();
+		int arr[]=new int[n];
+		int i=0;
+		int j=n-1;
+		int  counter=1;
+		while(i<=j) {
+			if(counter%2==1) {
+				arr[i]=counter;
+				i++;
+				counter++;
+			}else {
+				arr[j]=counter;
+				j--;
+				counter++;
+			}
+			
+		}
+		for (int k = 0; k < arr.length; k++) {
+			System.out.print(arr[k]+" ");
+		}
+    }
+
+}
