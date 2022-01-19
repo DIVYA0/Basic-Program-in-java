@@ -1,0 +1,23 @@
+
+import java.util.Scanner;
+
+
+// Remember that the class name should be "Main" and should be "public".
+
+    public class Main{
+	public static void main(String[] args) {
+		// System.in and System.out are input and output streams, respectively.
+	Scanner Sc=new Scanner(System.in);
+		int totalTestcase=Sc.nextInt();
+		for (int i = 0; i < totalTestcase; i++) {
+			int[] arr=new int[totalTestcase];
+			
+				arr[i]=Sc.nextInt();
+				int result=52%arr[i];
+				System.out.println(result);
+			
+		}
+
+	}
+	
+}
