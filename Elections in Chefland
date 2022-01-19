@@ -1,0 +1,39 @@
+
+import java.util.Scanner;
+
+
+// Remember that the class name should be "Main" and should be "public".
+
+    public class Main{
+	public static void main(String[] args) {
+		// System.in and System.out are input and output streams, respectively.
+Scanner Sc=new Scanner(System.in);
+		int totalTestcase=Sc.nextInt();
+		for (int i = 0; i < totalTestcase; i++) {
+			int arr[]=new int[3];
+			int sum=0;
+			for (int j = 0; j < 3; j++) {
+				arr[j]=Sc.nextInt();
+				sum+=arr[j];
+			}
+			if(sum==101) {
+				if (arr[0]>50) {
+					System.out.println("A");
+					
+				}
+				else if (arr[1]>50) {
+					System.out.println("B");
+				}else if (arr[2]>50) {
+					System.out.println("C");
+				}else {
+					System.out.println("Nota");
+				}
+
+
+			}
+
+		}
+
+	}
+	
+}
