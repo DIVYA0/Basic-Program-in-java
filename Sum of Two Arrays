@@ -1,0 +1,40 @@
+
+public class Solution {
+
+    public static void sumOfTwoArrays(int arr1[], int arr2[], int output[]) {
+        //Your code goes here
+        int n=arr1.length-1;
+        int m=arr2.length-1;
+        int k=output.length-1;
+        int tens=0;
+      
+
+        while((n>=0 && m>=0)){
+
+
+            int ones=arr1[n]+arr2[m]+tens;
+            output[k]=ones%10;
+            tens=ones/10;
+
+            n--;
+            m--;
+            k--;
+        }
+       
+            output[0]=tens;  
+        
+        while(n>=0){
+             output[k]=arr1[n]+tens;
+            n--;
+            k--;
+            
+        }
+        while(m>=0){
+            output[k]=arr2[m]+tens;
+            m--;
+            k--;
+        }
+
+    }
+
+}
