@@ -1,0 +1,32 @@
+import java.util.Arrays;
+public class Solution {  
+
+    public static int secondLargestElement(int[] arr) {
+        //Your code goes here
+        boolean isEqual=true;
+        Arrays.sort(arr);
+        for(int x=0;x<arr.length - 1;x++){
+            if (arr[x] != arr[x+1]){
+                isEqual = false;            
+            }
+        }
+        int result=0;
+        for(int j=arr.length-2;j>=0;j--){
+            //System.out.println("hi1");
+
+            if(arr[j]!=arr[arr.length-1]){
+                // System.out.println("hi1");
+                result= arr[j];
+                break;
+            }
+
+        }
+        if(arr.length<2 ||isEqual==true){
+            return -2147483648;
+        }
+        else{
+            return result;
+        }
+    }
+
+}
