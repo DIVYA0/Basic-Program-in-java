@@ -1,0 +1,37 @@
+public class Solution {
+    public static String reverseWordWise(String input) {
+        // Write your code here
+        int stringStart=input.length()-1;
+        String ans="";
+        int i = input.length()-1;
+
+        for ( ;i>=0; i--) {
+
+            if(input.charAt(i)==' ') {
+                int stringEnd=i+1;
+                String reverseSentance="";
+                int j=stringStart;
+                for(;j>=stringEnd;j--) {
+                    reverseSentance=input.charAt(j)+reverseSentance;
+
+                }
+                ans+=reverseSentance +" ";
+                stringStart=j-1;
+            }
+
+
+
+        }
+        int stringEnd=i+1;
+        String reverseSentance="";
+        int j=stringStart;
+        for(;j>=stringEnd;j--) {
+            reverseSentance=input.charAt(j)+reverseSentance;
+
+        }
+        ans+=reverseSentance ;
+        return ans;
+
+    }
+
+}
