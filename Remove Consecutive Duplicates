@@ -1,0 +1,19 @@
+
+public class Solution {
+
+	public static String removeConsecutiveDuplicates(String str) {
+		//Your code goes here
+      char[] ch=str.toCharArray();         
+      char s=ch[0];
+         String result=str.charAt(0)+"";
+       for(int i=1;i<str.length();i++){
+           if(s!=ch[i]){
+             
+               s=ch[i];
+               result=result+s;
+           }
+       }
+        return result;
+	}
+
+}
