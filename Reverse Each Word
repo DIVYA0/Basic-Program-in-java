@@ -1,0 +1,44 @@
+
+public class Solution {
+
+	public static String reverseEachWord(String str) {
+	
+        //Your code goes here
+	int WordStart=0;
+		String resultSentence="";
+		String reverseWord="";
+		int i=0;
+		for(;i<str.length();i++) {
+			reverseWord="";
+
+			if(str.charAt(i)==' ') {
+
+				int wordEnd=i-1;
+
+				for(int j=WordStart;j<=wordEnd;j++) {
+
+					reverseWord=str.charAt(j)+reverseWord;
+
+				}
+				resultSentence=resultSentence+reverseWord+" ";
+
+				WordStart=i+1;
+			}
+
+
+		}
+		int wordEnd=i-1;
+
+		for(int j=WordStart;j<=wordEnd;j++) {
+
+			reverseWord=str.charAt(j)+reverseWord;
+
+		}
+		resultSentence=resultSentence+reverseWord;
+
+		WordStart=i+1;
+		return resultSentence;
+
+    }
+
+}
