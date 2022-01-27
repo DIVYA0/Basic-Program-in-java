@@ -1,0 +1,21 @@
+import java.util.Scanner;
+public class RemoveChar {
+	public static String removeChar(String str,char ch) {
+		char[] c=str.toCharArray();
+		String removeChar="";
+		for(int i=0;i<str.length();i++) {
+			if(c[i]!=ch) {
+				removeChar=removeChar+c[i];
+			}
+		}
+		return removeChar;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		String str=Sc.nextLine();
+		char c=Sc.next().charAt(0);
+		String result=removeChar(str, c);
+		System.out.println(result);
+	}
+}
