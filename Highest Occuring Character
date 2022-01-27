@@ -1,0 +1,25 @@
+import java.util.Scanner;
+public class HighestOccurrance {
+	public static String highestOccurance(String str) {
+		int c[]=new int[256];
+		for(int i=0;i<str.length();i++) {
+			c[str.charAt(i)]++;
+		}
+		int max=Integer.MIN_VALUE;
+		String result="";
+		for(int i=0;i<str.length();i++) {
+			if(max<c[str.charAt(i)]) {
+				max=c[str.charAt(i)];
+				result=""+str.charAt(i);
+			}
+		}
+		return result;
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		String str=Sc.next();
+		String s= highestOccurance(str);
+		System.out.println(s);
+	}
+}
