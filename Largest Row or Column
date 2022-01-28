@@ -1,0 +1,46 @@
+
+public class Solution {
+
+	public static void findLargest(int arr[][]){
+		//Your code goes here
+        	
+		int r=arr.length;
+        	int max=Integer.MIN_VALUE;
+		int sum=0;
+		String s="row";
+        int index=0;
+        if(r!=0){
+		
+		int c=arr[0].length;
+	
+		
+		for(int i=0;i<r;i++) {
+			sum=0;
+			for(int j=0;j<c;j++) {
+				sum=sum+arr[i][j];
+			}
+			if(max<sum) {
+				max=sum;
+				s="row";
+				index=i;
+			}
+		}
+		sum=0;
+		for(int j=0;j<c;j++) {
+			sum=0;
+			for(int i=0;i<r;i++) {
+				sum=sum+arr[i][j];
+			}
+			if(max<sum) {
+				max=sum;
+				index=j;
+				s="column";
+			}
+		}
+	System.out.println(s+" "+index+" "+max);
+        }else{
+            System.out.println(s+" "+index+" "+Integer.MIN_VALUE);
+        }
+	}
+
+}
