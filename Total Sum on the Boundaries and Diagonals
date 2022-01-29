@@ -1,0 +1,28 @@
+public class Solution {
+    public static void totalSum(int[][] mat) {
+        //Your code goes here
+        int r=mat.length;
+        int sum=0;
+        if(r!=0){
+            int c=mat[0].length; 
+            int i=0;
+            for(int j=0;j<c;j++){
+                sum=sum+mat[i][j];
+            } 
+            for(i=1;i<r-1;i++){
+                for(int j=0;j<c;j++){
+                    if((i<r&&j==0)||(i<r&&j==c-1)||(i<r&&j==i)||(i<r&&j==c-1-i)){
+                        sum=sum+mat[i][j];
+                    }
+                }
+            }
+            i=r-1;
+            for(int j=0;j<c;j++){
+                sum=sum+mat[i][j];
+            }
+            System.out.println(sum);
+        }else{
+            System.out.println(0);
+        }
+    }
+}
