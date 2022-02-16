@@ -1,0 +1,18 @@
+package Recursion;
+
+public class FibonacciUsingRecursion {
+public static int Fibonacci(int n) {
+	if(n==1||n==2) {
+		return 1;
+	}
+	int a=Fibonacci(n-1);
+	int b=Fibonacci(n-2);
+	int c=a+b;
+	return c;
+}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(Fibonacci(5)); ;
+	}
+
+}
