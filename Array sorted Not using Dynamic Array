@@ -1,0 +1,32 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class ArraySortedNotUsingDynamicArray {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		int n=Sc.nextInt();
+		int arr[]=new int[n];
+		for(int i=0;i<arr.length;i++) {
+			arr[i]=Sc.nextInt();
+		}
+		boolean res=ArraySortedOrNot(arr,0);
+		System.out.println(res);
+	}
+
+	private static boolean ArraySortedOrNot(int[] arr, int e) {//e means index
+		// TODO Auto-generated method stub
+		if(e==arr.length-1) {
+			return true;
+		}
+		if(arr[e]>arr[e+1]) {
+			return false;
+		}
+		boolean res=ArraySortedOrNot(arr, e+1);
+		return res;
+		
+	}
+
+}
