@@ -1,0 +1,44 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class LastIndexusingRecursion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		int n=Sc.nextInt();
+		int x=Sc.nextInt();
+		int arr[]=new int[n];
+		for(int i=0;i<arr.length;i++) {
+			arr[i]=Sc.nextInt();
+		}
+		int res=LastIndexusingfirstPosition(arr,x);
+		System.out.println(res);
+	}
+
+	private static int LastIndexusingfirstPosition(int[] arr, int x) {
+		// TODO Auto-generated method stub
+
+		return LastIndexusingfirstPosition(arr,x,0);
+	}
+
+	private static int LastIndexusingfirstPosition(int[] arr, int x, int size) {
+		// TODO Auto-generated method stub
+		if(size==arr.length) {
+			return -1;
+		}
+		int res=LastIndexusingfirstPosition(arr,x,size+1);
+		if(res!=-1) {
+			return res;
+		}else {
+			if(arr[size]==x) {
+				return size;
+			}
+			else {
+				return -1;
+			}
+		}//2 3 2 2  5
+	}
+
+}
