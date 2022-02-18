@@ -1,0 +1,20 @@
+package Recursion;
+
+public class RecursionUsingString {
+	public static String ReplaceString(String s,char a,char b) {
+		if(s.length()==0) {
+			return s;
+		}
+		String smallOutput=ReplaceString(s.substring(1), a, b);
+		if(s.charAt(0)==a) {
+			return b+smallOutput;
+		}else {
+			return s.charAt(0)+smallOutput;
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(ReplaceString("abaac", 'a', 'x'));
+	}
+
+}
