@@ -1,0 +1,25 @@
+package Recursion;
+
+public class ReplacePIUsingRecursion {
+	public static String RemovePI(String s) {
+		if(s.length()<=1) {
+			return s;
+
+		}
+		if(s.charAt(0)=='p'&&s.charAt(1)=='i') {
+			String smallOutput=RemovePI(s.substring(2));
+			return "3.14"+smallOutput;
+		}else
+		{
+			String smallOutput=RemovePI(s.substring(1));
+			return s.charAt(0)+smallOutput;
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println(RemovePI("pipi"));
+		System.out.println(RemovePI("spipis"));
+
+	}
+
+}
