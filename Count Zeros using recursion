@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class runner {
+	public static void main(String[] args) {
+		Scanner s = new Scanner(System.in);
+		int n = s.nextInt();
+		System.out.println(solution.countZerosRec(n));
+	}
+}
+***********************************************
+
+public class solution {
+
+    public static int countZerosRec(int n){
+        // Write your code here
+        String s=Integer.toString(n);
+        int count=countZeroUsingString(s,s.length()-1,0);
+        return count; 
+    }
+    private static int countZeroUsingString(String s,int i,int count) {
+        //System.out.println(s+" "+i+" "+count+" "+s.charAt(i));
+        // TODO Auto-generated method stub
+        if(i==0) {
+            if(s.charAt(i)=='0') {
+                count=1;
+                return count;
+            }else {
+
+                return count;
+            }
+        }
+        if(s.charAt(i)=='0')
+        {
+            return    countZeroUsingString(s,i-1,count)+1;
+        }else{
+            return    countZeroUsingString(s,i-1,count);
+        }
+
+    }
+
+}
