@@ -1,0 +1,23 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class SumOfDigitRecursive {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		int n=Sc.nextInt();
+		int res=sumOfDigit(n);
+		System.out.println(res);
+	}
+	public static int sumOfDigit(int n) {
+		// TODO Auto-generated method stub
+		if(n<=0) {
+			return 0;
+		}
+		int output=	sumOfDigit(n/10);
+		output=output +n%10;
+		return output;
+	}
+}
