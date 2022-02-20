@@ -1,0 +1,23 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class GeometricSumRecursion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc=new Scanner(System.in);
+		int n=sc.nextInt();
+		double res=sum(n);
+		System.out.format("%.5f",res);
+	}
+
+	private static double sum(int n) {
+		// TODO Auto-generated method stub
+		if(n==0) {
+			return 1;
+		}
+		double res=1/((double)Math.pow(2, n))+sum(n-1);
+		return res;
+	}
+}
