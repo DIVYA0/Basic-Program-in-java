@@ -1,0 +1,36 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class PalindromeUsingRecursion {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		String s=Sc.next();
+		boolean output=	PalindromeFun(s);
+		System.out.println(output);
+
+	}
+
+	private static boolean PalindromeFun(String s) {
+		// TODO Auto-generated method stub
+		boolean res=	CheckPalindrome(s,0,s.length()-1);
+		return res;
+	}
+
+	private static boolean CheckPalindrome(String s, int si, int ei) {
+		System.out.println(si+" "+ei);
+		// TODO Auto-generated method stub
+		if(si>=ei) {
+			return true;
+		}
+		if(s.charAt(si)!=s.charAt(ei)) {
+			return false;
+		}
+		boolean res=CheckPalindrome(s, si+1, ei-1);
+		return res;
+
+	}
+
+}
