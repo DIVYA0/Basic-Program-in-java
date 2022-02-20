@@ -1,0 +1,21 @@
+package Recursion;
+import java.util.Scanner;
+public class convertstringToIntUsingRecursion {
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		String s=Sc.next();
+		int n=ConvertStringToInt(s);
+		System.out.println(n);
+	}
+	private static int ConvertStringToInt(String s) {
+		// TODO Auto-generated method stub
+		if(s.length()==1) {
+			return (s.charAt(0)-'0');
+		} //1234
+		int y=ConvertStringToInt(s.substring(1));
+		int x=s.charAt(0)-'0';
+		int output=(int)(x*(Math.pow(10, s.length()-1))+y);
+		return output;
+	}
+}
