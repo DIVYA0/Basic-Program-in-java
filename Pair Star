@@ -1,0 +1,25 @@
+package Recursion;
+
+import java.util.Scanner;
+public class PairStarUsingRecurive {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		String s=Sc.next();
+		String str=	Fun_PairStar(s);
+		System.out.println(str);
+    
+	}
+	private static String Fun_PairStar(String s) {
+		// TODO Auto-generated method stub
+		if(s.length()==1) {
+			return s.charAt(0) +"";
+		}
+		if(s.charAt(0)!=s.charAt(1)) {
+			return 	s.charAt(0)+Fun_PairStar(s.substring(1));
+		}else {
+			return s.charAt(0)+"*"+Fun_PairStar(s.substring(1));
+		}
+	}
+}
