@@ -1,0 +1,26 @@
+package Recursion;
+
+import java.util.Scanner;
+
+public class Staircase {
+
+	public static void main(String[] args) {
+		Scanner Sc=new Scanner(System.in);
+		int n=Sc.nextInt();
+		int res=stairCase(n);
+		System.out.println(res);
+
+	}
+
+	private static int stairCase(int n) {
+		// TODO Auto-generated method stub
+		if(n==0) {
+			return 1;
+		}
+		if(n<0) {
+			return 0;
+		}
+		return stairCase(n-1)+stairCase(n-2)+stairCase(n-3);
+
+	}
+}
