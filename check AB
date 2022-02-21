@@ -1,0 +1,36 @@
+package Recursion;
+
+import java.util.Scanner;
+
+import function.remainder;
+
+public class CheckAB {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		String s=Sc.next();
+
+		boolean b= CheckAB(s);
+		System.out.println(b);
+	}
+
+	private static boolean CheckAB(String s) {
+		// TODO Auto-generated method stub
+		if(s.length()==0) {
+			return true;
+
+		}
+		if(s.charAt(0)=='a') {
+			if(s.substring(1).length()>1 && s.substring(1, 3).matches("bb")) {
+				return CheckAB(s.substring(3));
+			}else {
+				return CheckAB(s.substring(1));
+			}
+		}else {
+			return false;
+		}
+
+	}
+
+}
