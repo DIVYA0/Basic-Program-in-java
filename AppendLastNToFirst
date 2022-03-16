@@ -1,0 +1,105 @@
+package LinkedList;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class Node<T> {
+ T data;
+ Node<T> next;
+ public Node(T data) {
+	 this.data=data;
+ }
+}
+
+public class AppendLastToFirst {
+	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws IOException {
+
+		// TODO Auto-generated method stub
+		Node<Integer> head=takeInput();
+		String[] pos_data=br.readLine().trim().split("\\s");
+		int n=Integer.parseInt(pos_data[0]);
+		//		int c=count(head);
+		//		n=c-n;
+		head=	AppendlastToFirst(head,n);
+		Print(head);
+	}
+	private static void Print(Node<Integer> head) {
+		// TODO Auto-generated method stub
+		while(head != null) {
+			System.out.print(head.data+" ");
+			head = head.next;
+
+		}
+	}
+	public static int count(Node<Integer> head) {
+		Node<Integer> temp=head;
+		int count=0;
+		while(temp!=null) {
+			count++; 
+			temp=temp.next;
+		}
+		return count;
+
+	}
+	private static Node<Integer> AppendlastToFirst(Node<Integer> head, int n) {
+		// TODO Auto-generated method stub
+		if(n!=0){
+			int c=count(head);
+
+			n=c-n;  
+		}
+
+		Node<Integer> FirstPart=head;
+		Node<Integer> temp=head;
+		int count=0;
+		while(temp!=null) {
+			count++;
+			if(count==n) {
+				head=temp.next;
+				temp.next=null;
+				temp=head;
+				while(temp!=null) {
+					if(temp.next==null) {
+						temp.next=FirstPart;
+						while(temp!=null) {
+							if(temp.next==null) {
+								return head;
+							}
+							temp=temp.next;
+						}
+
+					}
+					temp=temp.next;
+				}
+			}
+			temp=temp.next;
+		}
+		return head;
+	}
+
+	private static Node<Integer> takeInput() throws IOException {
+		// TODO Auto-generated method stub
+		Node<Integer> head =null,tail=null;
+		String[] input=br.readLine().trim().split("\\s");
+		int i=0;
+
+		while(i<input.length&&!input[i].equals("-1")) {	
+			int n= Integer.parseInt(input[i]) ;
+
+			Node<Integer> newNode=new Node<Integer>(n);
+			if(head==null) {
+				head=newNode;
+				tail=newNode;
+			}else {
+				tail.next=newNode;
+				tail=newNode;
+			}
+			i++;
+		}
+
+		return head;
+	}
+
+}
