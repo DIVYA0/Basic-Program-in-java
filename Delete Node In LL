@@ -1,0 +1,78 @@
+package LinkedList;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class Node<T> {
+ T data;
+ Node<T> next;
+ public Node(T data) {
+	 this.data=data;
+ }
+}
+public class DeleteElement {
+	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String[] args) throws IOException {
+		Node<Integer> head=takeInput();
+		String[] pos_data=br.readLine().trim().split("\\s");
+		int pos=Integer.parseInt(pos_data[0]);
+
+		head	=Delete(head,pos);
+		print(head);
+	}
+	private static Node<Integer> Delete(Node<Integer> head, int pos) {
+		// TODO Auto-generated method stub
+		if(pos==0) {
+			head=head.next;
+			return head;
+		}
+		Node<Integer> temp=head;
+		int currentpos=0;
+
+		while(temp!=null) {
+			if(currentpos==(pos-1)) {
+				if(temp.next==null||temp==null) {
+					return head;
+				}
+				temp.next=temp.next.next;
+			}
+			currentpos++;
+			temp=temp.next;
+		}
+
+		return head;
+	}
+
+private static void print(Node<Integer> head) {
+	// TODO Auto-generated method stub
+	while(head != null) {
+		System.out.print(head.data + " ");
+		head = head.next;
+	}
+
+	System.out.println();
+}
+private static Node<Integer> takeInput() throws IOException {
+	// TODO Auto-generated method stub
+	Node<Integer> head =null,tail=null;
+	String[] input=br.readLine().trim().split("\\s");
+	int i=0;
+
+	while(i<input.length&&!input[i].equals("-1")) {	
+		int n= Integer.parseInt(input[i]) ;
+
+		Node<Integer> newNode=new Node<Integer>(n);
+		if(head==null) {
+			head=newNode;
+			tail=newNode;
+		}else {
+			tail.next=newNode;
+			tail=newNode;
+		}
+		i++;
+	}
+
+	return head;
+}
+
+}
