@@ -1,0 +1,63 @@
+package LinkedList;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class Node<T> {
+ T data;
+ Node<T> next;
+ public Node(T data) {
+	 this.data=data;
+ }
+}
+
+public class FindElement {
+	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws IOException {
+		Node<Integer> head=	takeInput();
+		int ele=Integer.parseInt(br.readLine());
+		int res=FindElementfun(head,ele);
+		System.out.println(res);
+	}
+	private static int FindElementfun(Node<Integer> head,int ele) {
+		Node<Integer> temp=head;
+		int count=0;
+		while(temp!=null) {
+
+			if(temp.data==ele) {
+				return count;
+			}
+			count++;
+			temp=temp.next;
+		}
+		// TODO Auto-generated method stub
+		return -1;
+	}
+
+
+	private static Node<Integer> takeInput() throws IOException {
+		// TODO Auto-generated method stub
+		Node<Integer> head =null,tail=null;
+		String[] input=br.readLine().trim().split("\\s");
+		int i=0;
+
+		while(i<input.length&&!input[i].equals("-1")) {	
+			int n= Integer.parseInt(input[i]) ;
+
+			Node<Integer> newNode=new Node<Integer>(n);
+			if(head==null) {
+				head=newNode;
+				tail=newNode;
+			}else {
+				tail.next=newNode;
+				tail=newNode;
+			}
+			i++;
+		}
+
+		return head;
+
+	}
+
+}
