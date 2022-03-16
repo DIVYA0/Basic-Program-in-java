@@ -1,0 +1,73 @@
+package LinkedList;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+public class Node<T> {
+ T data;
+ Node<T> next;
+ public Node(T data) {
+	 this.data=data;
+ }
+}
+
+public class Polindrome {
+	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		Node<Integer> head=takeInput();
+		boolean res=palindromeFun(head);
+
+		System.out.println(res);
+	}
+
+	private static boolean palindromeFun(Node<Integer> head) {
+		// TODO Auto-generated method stub
+		Node<Integer> slow_data=head;
+		boolean ispalindrome=true;
+		Stack<Integer> s=new Stack<>();
+
+		while(slow_data!=null) {
+			s.push(slow_data.data);
+			slow_data=slow_data.next;
+		}
+		while(head!=null) {
+			int i=s.pop();
+			if(head.data==i) {
+				ispalindrome=true;
+			}else{
+				ispalindrome=false;
+				break;
+			}
+			head=head.next;
+		}
+		return ispalindrome;
+	}
+
+	private static Node<Integer> takeInput() throws IOException {
+		// TODO Auto-generated method stub
+		Node<Integer> head =null,tail=null;
+		String[] input=br.readLine().trim().split("\\s");
+		int i=0;
+
+		while(i<input.length&&!input[i].equals("-1")) {	
+			int n= Integer.parseInt(input[i]) ;
+
+			Node<Integer> newNode=new Node<Integer>(n);
+			if(head==null) {
+				head=newNode;
+				tail=newNode;
+			}else {
+				tail.next=newNode;
+				tail=newNode;
+			}
+			i++;
+		}
+
+		return head;
+
+	}
+
+}
