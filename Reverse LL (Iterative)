@@ -1,0 +1,61 @@
+package LinkedList;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class Reverseiterative {
+	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		Node<Integer> head=takeInput();
+		head=reverseIteraterative(head);
+		printUsingResursion(head);
+	}
+	private static Node<Integer> reverseIteraterative(Node<Integer> head) {
+		// TODO Auto-generated method stub
+		Node<Integer> next=null,curr=head,prev=null;
+		while(curr!=null) {
+			next=curr.next;
+			curr.next=prev;
+			prev=curr;
+			curr=next;
+		}
+		return prev;
+	}
+	private static void printUsingResursion(Node<Integer> head) {
+		// TODO Auto-generated method stub
+		if(head==null)	{
+			return;
+		}
+		System.out.print(head.data+" ");
+		printUsingResursion(head.next);
+		//System.out.print(head.data+" ");
+	}
+
+	private static Node<Integer> takeInput() throws IOException {
+		// TODO Auto-generated method stub
+		Node<Integer> head =null,tail=null;
+		String[] input=br.readLine().trim().split("\\s");
+		int i=0;
+
+		while(i<input.length&&!input[i].equals("-1")) {	
+			int n= Integer.parseInt(input[i]) ;
+
+			Node<Integer> newNode=new Node<Integer>(n);
+			if(head==null) {
+				head=newNode;
+				tail=newNode;
+			}else {
+				tail.next=newNode;
+				tail=newNode;
+			}
+			i++;
+		}
+
+		return head;
+	}
+
+
+}
