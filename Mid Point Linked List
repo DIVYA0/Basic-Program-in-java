@@ -1,0 +1,68 @@
+package LinkedList;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+public class MidpointList {
+	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		Node<Integer> head=takeInput();
+		Node<Integer>	res=Findmidpoint(head);
+		if(res!=null) {
+			System.out.println(res.data);
+		}
+
+	}
+	private static Node<Integer> Findmidpoint(Node<Integer> head) {
+		// TODO Auto-generated method stub
+		//System.out.println(head);
+		if(head==null){
+			//System.out.println("enter");
+			return head;
+		}
+		Node<Integer> slow=head,fast=head;
+		while(fast.next!=null && fast.next.next!=null) {
+			slow=slow.next;
+			fast=fast.next.next;
+		}
+		return slow;
+	}
+	private static void printUsingResursion(Node<Integer> head) {
+		// TODO Auto-generated method stub
+		if(head==null)	{
+			return;
+		}
+		System.out.print(head.data+" ");
+		printUsingResursion(head.next);
+		//System.out.print(head.data+" ");
+	}
+
+	private static Node<Integer> takeInput() throws IOException {
+		// TODO Auto-generated method stub
+		Node<Integer> head =null,tail=null;
+		String[] input=br.readLine().trim().split("\\s");
+		int i=0;
+
+		while(i<input.length&&!input[i].equals("-1")) {	
+			int n= Integer.parseInt(input[i]) ;
+
+			Node<Integer> newNode=new Node<Integer>(n);
+			if(head==null) {
+				head=newNode;
+				tail=newNode;
+			}else {
+				tail.next=newNode;
+				tail=newNode;
+			}
+			i++;
+		}
+
+		return head;
+	}
+
+
+
+}
