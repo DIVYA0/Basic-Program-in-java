@@ -1,0 +1,102 @@
+package LinkedList;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+public class Node<T> {
+ T data;
+ Node<T> next;
+ public Node(T data) {
+	 this.data=data;
+ }
+}
+
+public class SwapNode {
+	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		Node<Integer> head=takeInput();
+		int x=Integer.parseInt(br.readLine());
+		int y=Integer.parseInt(br.readLine());
+		head=swapNode(head,x,y);
+
+		printUsingResursion(head);
+	}
+	private static Node<Integer> swapNode(Node<Integer> head, int x, int y) {
+		// TODO Auto-generated method stub
+
+		if(x==y||head==null) {
+			return head;
+		}
+		Node<Integer> currX=head,prevX=null;
+
+		int count =0;
+		while(currX!=null&&count!=x) {
+			prevX=currX;
+			currX=currX.next;
+			count++;
+		}
+		Node<Integer> currY=head,prevY=null;
+		count=0;
+		while(currY!=null&&count!=y) {
+			prevY=currY;
+			currY=currY.next;
+			count++;
+		}
+		if(currX==null||currY==null) {
+			return head;
+		}
+
+		if(prevX!=null) {
+			prevX.next=currY;
+		}else {
+			head=currY;
+		}
+
+		if(prevY!=null) {
+			prevY.next=currX;
+		}else {
+			head=currX;
+		}
+		Node<Integer> temp=currX.next;
+		currX.next=currY.next;
+		currY.next=temp;
+
+
+		return head;
+
+	}
+	private static void printUsingResursion(Node<Integer> head) {
+		// TODO Auto-generated method stub
+		if(head==null)	{
+			return;
+		}
+		System.out.print(head.data+" ");
+		printUsingResursion(head.next);
+	}
+	private static Node<Integer> takeInput() throws IOException {
+		// TODO Auto-generated method stub
+		Node<Integer> head =null,tail=null;
+		String[] input=br.readLine().trim().split("\\s");
+		int i=0;
+
+		while(i<input.length&&!input[i].equals("-1")) {	
+			int n= Integer.parseInt(input[i]) ;
+
+			Node<Integer> newNode=new Node<Integer>(n);
+			if(head==null) {
+				head=newNode;
+				tail=newNode;
+			}else {
+				tail.next=newNode;
+				tail=newNode;
+			}
+			i++;
+		}
+
+		return head;
+	}
+
+
+}
