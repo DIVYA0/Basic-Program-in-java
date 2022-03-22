@@ -1,0 +1,52 @@
+package Stack;
+
+import java.util.Scanner;
+import java.util.Stack;
+
+public class BracketBalanceOrNot {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		String str=Sc.next();
+		boolean res= checkBracketBalanced(str);
+		System.out.println(res);
+	}
+
+	private static boolean checkBracketBalanced(String str) {
+		// TODO Auto-generated method stub
+		Stack<Character> stack=new Stack<>();
+		for(int i=0;i<str.length();i++) {
+			char x=str.charAt(i);
+			if(x=='{'||x=='('||x=='[') {
+				stack.push(x);
+				continue;
+			}
+			if(stack.isEmpty()) {
+				return false;
+			}
+			char check=stack.pop();
+			switch (x) {
+			case ')':
+
+				if(check=='{'||check=='[') {
+					return false;
+				}
+				break;
+			case '}':
+				if(check=='('||check=='[') {
+					return false;
+				}
+				break;
+			case ']':
+				if(check=='{'||check=='(') {
+					return false;
+				}
+				break;
+			}
+
+		}
+		return stack.isEmpty();
+	}
+
+}
