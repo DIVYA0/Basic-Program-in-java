@@ -1,0 +1,45 @@
+package Stack;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+
+public class redundantBrackets {
+	static BufferedReader br=new BufferedReader(new InputStreamReader(System.in));
+	public static void main(String[] args) throws IOException {
+		// TODO Auto-generated method stub
+		String str=br.readLine();
+		boolean res=	checkRedundantBracket(str);
+		System.out.println(res);
+	}
+	private static boolean checkRedundantBracket(String str) {
+		// TODO Auto-generated method stub
+		Stack<Character> s=new  Stack<>();
+		for(int i=0;i<str.length();i++) {
+			char c=str.charAt(i);
+
+			if(c==')'||c=='}') {
+				char top=s.peek();
+				s.pop();
+				boolean flag= true;
+				while(top!='(') {
+					if(top=='+'||top=='-'||top=='*'||top=='/') {
+						flag=false;
+					}
+					top=s.peek();
+					s.pop();
+				}
+				if(flag==true) {
+					return true;
+				}
+			}
+			else{
+				s.push(c);
+			}
+
+		}
+		return false;
+	}
+
+}
