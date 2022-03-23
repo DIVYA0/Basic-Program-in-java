@@ -1,0 +1,39 @@
+package Stack;
+
+import java.util.Stack;
+
+public class StackSpan {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int price[]= {100,80,50,70,50,75,85};
+		int n=price.length;
+		int s[]=new int[n];
+		CalculateStackSpan(price,n,s);
+		printFun(s);
+	}
+
+	private static void printFun(int[] s) {
+		// TODO Auto-generated method stub
+		for(int i=0;i<s.length;i++) {
+			System.out.print(s[i]+" ");
+		}
+	}
+
+	private static void CalculateStackSpan(int[] price, int n, int[] s) {
+		// TODO Auto-generated method stub
+		Stack<Integer> stack=new Stack<>();
+		stack.push(0);
+		s[0]=1;
+		for(int i=0;i<n;i++) {
+			while(stack.isEmpty()==false && price[stack.peek()]<price[i]) {
+				stack.pop();
+			}
+			s[i]=stack.isEmpty()==true? (i+1):i-stack.peek();
+			stack.push(i);
+		}
+
+
+	}
+
+}
