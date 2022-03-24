@@ -1,0 +1,44 @@
+package Stack;
+
+import java.util.Stack;
+
+public class minBracketReversal {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String expr = "}}}{{{";
+
+		System.out.println(countMinReversals(expr));
+	}
+
+	private static int countMinReversals(String expr) {
+		// TODO Auto-generated method stub
+		int len=expr.length();
+		Stack<Character> s=new Stack<>();
+		if(len%2!=0) {
+			return -1;
+		}
+		for(int i=0;i<len;i++) {
+			char c=expr.charAt(i);
+			if(!s.empty()&&c=='}') {
+				if(s.peek()=='{') {
+					s.pop();
+				}else {
+					s.push(c);
+				}
+			}else {
+				s.push(c);
+			}
+		}
+		int reduce_len=s.size();
+		int n=0;
+		while(!s.empty()&&s.peek()=='{') {
+			s.pop();
+
+			n++;
+		}
+		return reduce_len/2+n%2;
+
+	}
+
+}
