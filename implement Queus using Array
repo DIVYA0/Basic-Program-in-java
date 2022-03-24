@@ -1,0 +1,79 @@
+package queue;
+
+public class QueueUsingArray {
+	private int data[];
+	private int Front;
+	private int Rear;
+	private int size;
+
+	public QueueUsingArray() {
+		//System.out.println(size);
+		data=new int[5];
+		Front=-1;
+		Rear=-1;
+	}
+	public QueueUsingArray(int size) {
+		data=new int[size];
+		Front=-1;
+		Rear=-1;
+	}
+	public int size() {
+		return size;
+	}
+	public boolean isEmpty() {
+		return size==0;
+	}
+	public int Front() throws QueueEmptyException {
+		if(size==0) {
+			throw new QueueEmptyException();
+		}
+		return data[Front];
+	}
+	public void enqueue(int elem) throws QueueFullException {
+		if(size==data.length) {
+			throw new QueueFullException();
+		}
+		if(size==0) {
+			Front=0;
+		}
+		Rear++;
+		data[Rear]=elem;
+		size++;
+	}
+	public int dequeue() throws QueueEmptyException {
+		if(size==0) {
+			throw new QueueEmptyException();
+		}
+		int temp=data[Front];
+		Front++;
+		size--;
+		if(size==0) {
+			Front=-1;
+			Rear=-1;
+		}
+		return temp;
+	}
+}
+////////////////////////////////////////////////////////////////
+package queue;
+
+public class QueueUse {
+
+	public static void main(String[] args) throws QueueFullException, QueueEmptyException {
+		// TODO Auto-generated method stub
+		QueueUsingArray q=new QueueUsingArray();
+		q.enqueue(10);
+		q.enqueue(20);
+		q.enqueue(30);
+		q.enqueue(40);
+		q.enqueue(50);
+		System.out.println(q.dequeue());
+		System.out.println(q.Front());
+		System.out.println(q.size());
+		System.out.println(q.dequeue());
+		System.out.println(q.dequeue());
+		System.out.println(q.dequeue());
+		System.out.println(q.isEmpty());
+	}
+
+}
