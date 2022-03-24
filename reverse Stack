@@ -1,0 +1,57 @@
+package Stack;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Stack;
+
+public class ReverseStack {
+	static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+	public static void main(String[] args) throws NumberFormatException, IOException  {
+		// TODO Auto-generated method stub
+		Stack<Integer> input=takeInput();
+		Stack<Integer> empty = new Stack<>();
+
+		reverseStack(input, empty);
+
+		while(!input.isEmpty()) {
+			System.out.print(input.pop() + " ");
+		}
+
+	}
+	private static Stack<Integer> reverseStack(Stack<Integer> s, Stack<Integer> a) {
+		Stack<Integer> b=new Stack<>();
+		transfer(s,a);
+		transfer(a,b);
+		transfer(b,s);
+		// TODO Auto-generated method stub
+		return s;
+	}
+	private static void transfer(Stack<Integer> s, Stack<Integer> a) {
+		// TODO Auto-generated method stub
+
+		while(s.isEmpty()==false) {
+			int temp= s.peek();
+			s.pop();
+			a.push(temp);
+		}
+
+
+	}
+	public static Stack<Integer> takeInput() throws NumberFormatException, IOException  {
+		int size = Integer.parseInt(br.readLine().trim());
+		Stack<Integer> input = new Stack<>();
+
+		if (size == 0) {
+			return input;
+		}
+
+		String[] values = br.readLine().trim().split(" ");
+		for(int i = 0; i < size; i++) {
+			input.push(Integer.parseInt(values[i]));
+		}
+		return input;
+	}
+
+}
