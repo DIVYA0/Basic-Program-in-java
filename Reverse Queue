@@ -1,0 +1,26 @@
+package queue;
+
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class ReverseQueue {
+	public static void reverseQueue(Queue<Integer> q) {
+		if(q.size()==0) {
+			return;
+		}
+		int temp=q.poll();
+		reverseQueue(q);
+		q.add(temp);
+	}
+	public static void main(String[] args) {
+		Queue<Integer> q=new LinkedList<>();
+		q.add(10);
+		q.add(20);
+		q.add(30);
+		reverseQueue(q);
+		while(!q.isEmpty()) {
+			System.out.println(q.poll());
+		}
+
+	}
+}
