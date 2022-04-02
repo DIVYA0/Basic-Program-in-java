@@ -1,0 +1,62 @@
+package PracticeQuestion;
+
+
+import java.util.*;
+
+
+public class BitonicGeneratorSort {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		int size=Sc.nextInt();
+		int arr[]=new int[size];
+		for (int i = 0; i < arr.length; i++) {
+			arr[i]=Sc.nextInt();
+		}
+		bitonicGenerator(arr);
+		printResult(arr);
+	}
+
+	private static void printResult(int[] arr) {
+		// TODO Auto-generated method stub
+		int i=0;
+		while(i<arr.length) {
+			System.out.print(arr[i]+" ");
+			i++;
+		}
+	}
+
+	private static void bitonicGenerator(int[] arr) {
+		// TODO Auto-generated method stub
+		Vector<Integer> arrOdd=new Vector<>();
+		Vector<Integer> arrEven=new Vector<>();
+		int i=0;
+		while(i<arr.length) {
+			if(i%2==0) {
+				arrEven.add(arr[i]);
+
+			}else {
+				arrOdd.add(arr[i]);
+			}
+			i++;
+		}
+		Collections.sort(arrEven);//To Sort Element in Ascending Order
+		Collections.sort(arrOdd, Collections.reverseOrder());
+		i=0;
+		int j=0;
+		while(j<arrEven.size())
+		{
+			arr[i]=arrEven.get(j);
+			j++;
+			i++;
+		}
+		j=0;
+		while(j<arrOdd.size()) {
+			arr[i]=arrOdd.get(j);
+			i++;
+			j++;
+		}
+	}
+
+}
