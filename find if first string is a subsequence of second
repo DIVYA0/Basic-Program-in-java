@@ -1,0 +1,34 @@
+package PracticeQuestion;
+
+import java.util.Scanner;
+
+public class CheckSequence {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner Sc=new Scanner(System.in);
+		String Str1=Sc.next();
+		String Str2=Sc.next();
+		boolean res=	isSequence(Str1,Str2,Str1.length(),Str2.length());
+		System.out.println(res);
+	}
+
+	private static boolean isSequence(String str1, String str2, int lstr1, int lstr2) {
+		// TODO Auto-generated method stub
+		if(lstr1==0) {
+			return true;
+		}
+		if(lstr2==0) {
+			return false;
+		}
+
+		int j=0;
+		for(int i=0;i<lstr2&&j<lstr1;i++) {
+			if(str1.charAt(j)==str2.charAt(i)) {
+				j++;
+			}
+		}
+		return lstr1==j;
+	}
+
+}
