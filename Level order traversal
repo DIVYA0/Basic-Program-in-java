@@ -1,0 +1,71 @@
+
+import java.util.LinkedList;
+import java.util.Queue;
+public class Solution {
+
+    public static void printLevelWise(BinaryTreeNode<Integer> root) {
+        if(root==null){
+            return;
+        }
+        Queue<BinaryTreeNode<Integer>> PendingChildren=new LinkedList<BinaryTreeNode<Integer>>();
+        PendingChildren.add(root);
+        PendingChildren.add(null);
+        while(!PendingChildren.isEmpty()){
+            BinaryTreeNode<Integer> front=PendingChildren.poll();
+            if(front==null){
+                if(PendingChildren.isEmpty() ){
+                    break;
+                }else{
+                    System.out.println();
+                    PendingChildren.add(null);
+                }
+            }else{
+                System.out.print(front.data+" ");
+                if(front.left!=null){
+                    PendingChildren.add(front.left);
+                }
+                if(front.right!=null){
+                    PendingChildren.add(front.right);
+                }
+
+            }
+
+        }
+    }
+}
+................................................................................................
+
+import java.util.LinkedList;
+import java.util.Queue;
+public class Solution {
+
+    public static void printLevelWise(BinaryTreeNode<Integer> root) {
+        if(root==null){
+            return;
+        }
+        Queue<BinaryTreeNode<Integer>> PendingChildren=new LinkedList<BinaryTreeNode<Integer>>();
+        PendingChildren.add(root);
+        PendingChildren.add(null);
+        while(!PendingChildren.isEmpty()){
+            BinaryTreeNode<Integer> front=PendingChildren.poll();
+            if(front==null){
+                if(PendingChildren.isEmpty() ){
+                    break;
+                }else{
+                    System.out.println();
+                    PendingChildren.add(null);
+                }
+            }else{
+                System.out.print(front.data+" ");
+                if(front.left!=null){
+                    PendingChildren.add(front.left);
+                }
+                if(front.right!=null){
+                    PendingChildren.add(front.right);
+                }
+
+            }
+
+        }
+    }
+}
